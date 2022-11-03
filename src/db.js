@@ -1,20 +1,13 @@
 import mysql from 'mysql'
+import * as dotenv from 'dotenv';
+dotenv.config()
 
 const db = mysql.createConnection({
-  host: process.env.DB_URL,
+  host: process.env.DB_HOST,
   user: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
-  database: "HealthyBoys"
+  database: process.env.DB_NAME
 })
 
-db.connect((error) => {
-  if(error) {
-    console.log(error)
-    console.log('❌ DB error')
-  }
-  else {
-    console.log('✅ DB Connected')
-  }
-})
 
 export default db
