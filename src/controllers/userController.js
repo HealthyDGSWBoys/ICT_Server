@@ -89,3 +89,14 @@ export const TokenTesting = (req, res) => {
     })
   })
 }
+
+export const idExist = (req, res) => {
+  const id = req.params.id
+  db.query(`select id from User where id = '${id}'`, (err, result) => {
+    if (err) console.error(err)
+    return res.status(200).json({
+      code: 200,
+      exist: result.length > 0,
+    })
+  })
+}
