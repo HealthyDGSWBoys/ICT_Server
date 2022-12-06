@@ -1,5 +1,5 @@
 import express from 'express'
-import { signin, signup, TokenTesting, idExist } from '../controllers/userController'
+import { signin, signup, TokenTesting, idExist} from '../controllers/userController'
 import { authenticateAccessToken } from '../token/tokenMiddlewares'
 
 const mainRouter = express.Router()
@@ -14,5 +14,6 @@ mainRouter.post('/signin', signin)
 mainRouter.post('/decode', authenticateAccessToken, TokenTesting)
 
 mainRouter.get('/idexist/:id', idExist)
+
 
 export default mainRouter
